@@ -13,6 +13,9 @@ def post(event, sheet):
     sheet.values_append(sheetrange, params, body)
     return {
         "statusCode": 201,
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        },
         "body": json.dumps("success")
     }
 
@@ -31,6 +34,10 @@ def get(wsheet):
         i += 1
     return {
         "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json"
+        },
         "body": json.dumps(ls_data)
     }
 
